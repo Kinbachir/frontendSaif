@@ -1,0 +1,59 @@
+<section class="list-all">
+    <h2 style="text-decoration: underline;">Blogs</h2>
+    <div class="row">
+        <div class="col-md-12">
+            <label for="Search">Search</label>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="Search" id="Search" [(ngModel)]="searchText" placeholder="Enter Search">
+                </div>
+                <div class="col-md-6">
+                    <input type="button" class="btn btn-success" value="Search" (click)="SearchResult()"/>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <button type="button" class="btn btn-primary addBlogBtn" [routerLink]="[ '/add']">
+                Add New Blog
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>nom</th>
+                        <th>prenom</th>
+                        <th>adresse</th>
+                        <th>RIB</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let blog of blogList" >
+                        <td>{{blog.nom?blog.nom:''}}</td>
+                        <td>{{blog.prenom?blog.prenom:''}}</td>
+                        <td>{{blog.adresse?blog.adresse:''}}</td>
+                        <td>{{blog.RIB?blog.RIB:''}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p class="modal-msg">Are you sure?</p>
+                <p class="modal-msg">
+                    <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger action-btn" data-dismiss="modal"
+                        (click)="deleteblog()">Submit</button>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
